@@ -5,20 +5,34 @@ int main() {
     // Instanciation des objets Boxeur
     Boxeur boxeur_1("Box_1", 75.0);
     Boxeur boxeur_2("Box_2", 78.0);
+    Boxeur boxeur_3("Box_3", 80.0);
+    Boxeur boxeur_4("Box_4", 72.0);
 
-    // Instanciation de l'objet Combat
-    Combat combat_1("Comb_1_1/8");
+    // Instanciation des objets Combat
+    Combat demieFinale_1("1/2");
+    Combat demieFinale_2("1/2");
+    Combat finale("Finale");
 
-    // Association entre combat_1 et boxeur_1
-    combat_1.setCoinBleu(&boxeur_1);
+    // Association entre les boxeurs et les combats de demie-finales
+    demieFinale_1.setCoinBleu(&boxeur_1);
+    demieFinale_1.setCoinRouge(&boxeur_2);
 
-    // Association entre combat_1 et boxeur_2
-    combat_1.setCoinRouge(&boxeur_2);
+    demieFinale_2.setCoinBleu(&boxeur_3);
+    demieFinale_2.setCoinRouge(&boxeur_4);
 
-    // Vérification des associations
-    std::cout << "Combat 1 - Niveau : " << combat_1.getNiveau() << std::endl;
-    std::cout << "Coin bleu : " << combat_1.getCoinBleu()->getNom() << std::endl;
-    std::cout << "Coin rouge : " << combat_1.getCoinRouge()->getNom() << std::endl;
+    // Désignation des vainqueurs des demie-finales et affectation dans la finale
+    demieFinale_1.setVainqueur(demieFinale_1.DesignerVainqueur("bleu"));
+    demieFinale_2.setVainqueur(demieFinale_2.DesignerVainqueur("rouge"));
+
+    finale.setCoinBleu(demieFinale_1.getVainqueur());
+    finale.setCoinRouge(demieFinale_2.getVainqueur());
+
+    // Désignation du vainqueur de la finale
+    finale.setVainqueur(finale.DesignerVainqueur("bleu"));
+
+    // Affichage des résultats
+    Combat combats[3] = { demieFinale_1, demieFinale_2, finale };
+    AfficheResultats(combats, 3);
 
     return 0;
 }
