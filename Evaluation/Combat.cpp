@@ -28,6 +28,13 @@ Boxeur* Combat::getCoinRouge() const {
 void Combat::setCoinRouge(Boxeur* boxeur) {
     coinRouge = boxeur;
 }
+void Combat::setVainqueur(Boxeur* boxeur) {
+    vainqueur = boxeur;
+}
+Boxeur* Combat::getVainqueur() const {
+    return vainqueur;
+}
+
 
 // Méthode pour designer le vainqueur
 Boxeur* Combat::designerVainqueur(const std::string& couleurCoin) {
@@ -42,4 +49,5 @@ Boxeur* Combat::designerVainqueur(const std::string& couleurCoin) {
     }
 
     return vainqueur;
+
 }

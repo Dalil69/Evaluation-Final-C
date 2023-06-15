@@ -21,6 +21,13 @@ public:
     void setCoinBleu(Boxeur* boxeur);
     Boxeur* getCoinRouge() const;
     void setCoinRouge(Boxeur* boxeur);
+    void setVainqueur(Boxeur* boxeur);
+    Boxeur* getVainqueur() const;
+
+
+    // Fonction pour afficher les résultats
+    static void AfficheResultats(Combat combats[], int taille);
+
 
     // Méthode pour designer le vainqueur
     Boxeur* designerVainqueur(const std::string& couleurCoin);

@@ -21,18 +21,19 @@ int main() {
     demieFinale_2.setCoinRouge(&boxeur_4);
 
     // Désignation des vainqueurs des demie-finales et affectation dans la finale
-    demieFinale_1.setVainqueur(demieFinale_1.DesignerVainqueur("bleu"));
-    demieFinale_2.setVainqueur(demieFinale_2.DesignerVainqueur("rouge"));
+    demieFinale_1.setVainqueur(demieFinale_1.designerVainqueur("bleu"));
+    demieFinale_2.setVainqueur(demieFinale_2.designerVainqueur("rouge"));
 
-    finale.setCoinBleu(demieFinale_1.getVainqueur());
+    finale.setVainqueur(finale.getVainqueur());
     finale.setCoinRouge(demieFinale_2.getVainqueur());
 
     // Désignation du vainqueur de la finale
-    finale.setVainqueur(finale.DesignerVainqueur("bleu"));
+    finale.setVainqueur(finale.designerVainqueur("bleu"));
 
     // Affichage des résultats
     Combat combats[3] = { demieFinale_1, demieFinale_2, finale };
-    AfficheResultats(combats, 3);
+    Combat::AfficheResultats(combats, 3);
+
 
     return 0;
 }
